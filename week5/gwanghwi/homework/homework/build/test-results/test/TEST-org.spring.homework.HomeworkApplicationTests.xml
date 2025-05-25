@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.spring.homework.HomeworkApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-05-25T17:46:17.366Z" hostname="DESKTOP-2E9VKNN" time="0.648">
+  <properties/>
+  <testcase name="contextLoads()" classname="org.spring.homework.HomeworkApplicationTests" time="0.648"/>
+  <system-out><![CDATA[02:46:03.887 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.spring.homework.HomeworkApplicationTests]: HomeworkApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+02:46:04.048 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration org.spring.homework.HomeworkApplication for test class org.spring.homework.HomeworkApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.5)
+
+2025-05-26T02:46:04.919+09:00  INFO 12508 --- [    Test worker] o.s.homework.HomeworkApplicationTests    : Starting HomeworkApplicationTests using Java 17.0.14 with PID 12508 (started by dk255 in C:\Users\dk255\Desktop\Gwang\홍익대\연합동아리\멋쟁이 사자처럼\4주차\homework\homework)
+2025-05-26T02:46:04.924+09:00  INFO 12508 --- [    Test worker] o.s.homework.HomeworkApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2025-05-26T02:46:06.164+09:00  INFO 12508 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-26T02:46:06.283+09:00  INFO 12508 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 100 ms. Found 7 JPA repository interfaces.
+2025-05-26T02:46:06.988+09:00  INFO 12508 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-26T02:46:07.145+09:00  INFO 12508 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-26T02:46:07.241+09:00  INFO 12508 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-26T02:46:07.947+09:00  INFO 12508 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-26T02:46:08.013+09:00  INFO 12508 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-26T02:46:10.335+09:00  INFO 12508 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5daad59a
+2025-05-26T02:46:10.343+09:00  INFO 12508 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-26T02:46:10.584+09:00  WARN 12508 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-26T02:46:10.585+09:00  WARN 12508 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-05-26T02:46:10.614+09:00  INFO 12508 --- [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-26T02:46:11.728+09:00  INFO 12508 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-26T02:46:15.904+09:00  INFO 12508 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-26T02:46:16.729+09:00  WARN 12508 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-26T02:46:17.333+09:00  INFO 12508 --- [    Test worker] o.s.homework.HomeworkApplicationTests    : Started HomeworkApplicationTests in 13.011 seconds (process running for 14.721)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
