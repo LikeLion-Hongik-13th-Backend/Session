@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Comment {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long comment_id;
+    private Long commentId;
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY)
