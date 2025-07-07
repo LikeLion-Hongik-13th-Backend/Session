@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 @RequiredArgsConstructor
 public enum ErrorCode {
     INVALID_REQUEST       ("INVALID_REQUEST",       HttpStatus.BAD_REQUEST,  "필수 항목이 누락되었습니다"),
+    DUPLICATED_PRODUCT    ("DUPLICATED_PRODUCT",    HttpStatus.BAD_REQUEST,  "중복된 상품이 있습니다"),
     INVALID_TYPE          ("INVALID_TYPE",          HttpStatus.BAD_REQUEST,  "입력 형식이 올바르지 않습니다"),
     UNAUTHORIZED          ("UNAUTHORIZED",          HttpStatus.UNAUTHORIZED, "로그인 정보가 유효하지 않습니다"),
     FORBIDDEN             ("FORBIDDEN",             HttpStatus.FORBIDDEN,    "이 기능에 접근 권한이 없습니다"),

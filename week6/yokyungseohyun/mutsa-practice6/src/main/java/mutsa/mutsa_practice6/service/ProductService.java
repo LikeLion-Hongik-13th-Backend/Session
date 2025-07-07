@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ProductService {
 
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
     public List<ProductResponseDto> getAllProducts() {
         List<ProductResponseDto> productResponseDtos = productRepository.findAll().stream()
@@ -40,6 +40,7 @@ public class ProductService {
                 .name(product.getProductName())
                 .category(product.getCategory())
                 .price(product.getPrice())
+                .description(product.getDescription())
                 .build();
     }
 
@@ -57,13 +58,15 @@ public class ProductService {
                 ).collect(Collectors.toList());
     }
 
+    //상품 저장
     public Long createProduct(ProductRequestDto productRequestDto) {
         if (productRepository.existsByProductName(productRequestDto.getProductName()))
-            throw new CustomException(ErrorCode.INVALID_REQUEST);
+            throw new CustomException(ErrorCode.DUPLICATED_PRODUCT);
 
         Product product = Product.builder()
                 .productName(productRequestDto.getProductName())
                 .price(productRequestDto.getPrice())
+                .category(productRequestDto.getCategory())
                 .description(productRequestDto.getDescription())
                 .build();
         return productRepository.save(product).getProductId();
