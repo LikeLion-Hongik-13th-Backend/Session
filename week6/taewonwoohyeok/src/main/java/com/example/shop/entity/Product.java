@@ -4,8 +4,11 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,5 +24,7 @@ public class Product {
     private int stock;
     private String description;
     private String category;
+
+    @CreatedDate
     private LocalDateTime registeredAt;
 }
