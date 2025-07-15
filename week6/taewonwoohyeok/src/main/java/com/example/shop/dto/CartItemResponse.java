@@ -4,6 +4,7 @@ import com.example.shop.entity.CartItem;
 import com.example.shop.entity.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @Getter

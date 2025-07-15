@@ -4,6 +4,7 @@ import com.example.shop.dto.CartItemListResponse;
 import com.example.shop.dto.CartItemResponse;
 import com.example.shop.dto.CartRequest;
 import com.example.shop.dto.CartResponse;
+import com.example.shop.dto.UpdateCartItemQuantityRequest;
 import com.example.shop.entity.Cart;
 import com.example.shop.entity.CartItem;
 import com.example.shop.entity.Product;
@@ -46,7 +47,7 @@ public class CartService {
                 .quantity(cartRequest.getQuantity())
                 .build();
         CartItem savedCartItem = cartItemRepository.save(cartItem);
-        return new CartResponse(savedCartItem.getProduct().getProductId(),
+        return new CartResponse(savedCartItem.getCart().getCartId(), savedCartItem.getProduct().getProductId(),
                 savedCartItem.getAddedAt());
     }
 
@@ -67,10 +68,10 @@ public class CartService {
     }
 
     @Transactional
-    public void updateCartItem(Long cartItemId, int quantity) {
+    public void updateCartItem(Long cartItemId, UpdateCartItemQuantityRequest request) {
         CartItem cartItem = cartItemRepository.findById(cartItemId)
                 .orElseThrow(() -> new IllegalStateException("해당 id를 가진 cartItem을 찾을 수 없습니다."));
-        cartItem.setQuantity(quantity);
+        cartItem.setQuantity(request.getQuantity());
     }
 
 

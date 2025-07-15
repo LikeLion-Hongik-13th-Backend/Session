@@ -2,24 +2,29 @@ package com.example.shop.dto;
 
 import com.example.shop.entity.Address;
 import com.example.shop.entity.User;
-import jakarta.persistence.Embedded;
-import java.time.LocalDateTime;
-import org.springframework.data.annotation.CreatedDate;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class UserRequest {
 
     private String name;
+
     private String email;
-    private String phone_number;
-    //주소 추가
-    private Address address;
+
+    private String phoneNumber;
+
     private String password;
+
+    private Address address;
 
     public User toEntity() {
         return User.builder()
                 .name(this.name)
                 .email(this.email)
-                .phone_number(phone_number)
+                .phone_number(this.phoneNumber)
                 .address(this.address)
                 .password(this.password)
                 .build();

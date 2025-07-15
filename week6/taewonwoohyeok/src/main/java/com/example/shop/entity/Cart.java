@@ -26,4 +26,8 @@ public class Cart {
         this.user = user;
         this.ordered = false;
     }
+
+    public Cart() {
+
+    }
 }

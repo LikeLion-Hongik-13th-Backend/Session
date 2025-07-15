@@ -1,0 +1,38 @@
+#spring:
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/session4
+#    username: root
+#    password: won0862*
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  sql:
+#    init:
+#      mode: never
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL8Dialect
+#        show_sql: true
+#        format_sql: true
+#        default_batch_fetch_size: 1000
+
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://mutsa-db.cpg6sea8s05p.ap-southeast-2.rds.amazonaws.com:3306/mutsa_board
+    username: taewon
+    password: Wmfrjqrp9314*
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8080
