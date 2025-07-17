@@ -10,7 +10,8 @@ import lombok.NoArgsConstructor;
 @Getter
 public class CartItemResponse {
 
-    Long id;
+    Long cartItemId;
+    Long productId;
     String name;
     String category;
     int price;
@@ -21,7 +22,7 @@ public class CartItemResponse {
         Product product =  cartItem.getProduct();
         int price = product.getPrice();
         int quantity = cartItem.getQuantity();
-        return new CartItemResponse(product.getProductId(), product.getName(),
+        return new CartItemResponse(cartItem.getCartItemId(), product.getProductId(),product.getName(),
                 product.getCategory(), price, quantity, price * quantity);
     }
 }

@@ -20,7 +20,7 @@ import org.springframework.data.annotation.CreatedDate;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
     private String name;
