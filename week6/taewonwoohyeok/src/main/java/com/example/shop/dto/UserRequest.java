@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 public class UserRequest {
 
-    private String name;
+    private String nickname;
 
     private String email;
 
@@ -22,7 +22,7 @@ public class UserRequest {
 
     public User toEntity() {
         return User.builder()
-                .name(this.name)
+                .nickname(this.nickname)
                 .email(this.email)
                 .phone_number(this.phoneNumber)
                 .address(this.address)

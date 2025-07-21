@@ -31,7 +31,7 @@ public class User implements UserDetails {
     private Long userId;
 
     private String socialId;
-    private String name;
+    private String nickname;
     private String email;
 
     @Enumerated(EnumType.STRING)
@@ -59,5 +59,9 @@ public class User implements UserDetails {
     @Override
     public String getUsername() {
         return "";
+    }
+
+    public void updateNickname(String nickname) {
+        this.nickname = nickname;
     }
 }
