@@ -26,7 +26,7 @@ spring:
             client-secret: ${CLIENT_SECRET}
             client-authentication-method: client_secret_post
             authorization-grant-type: authorization_code
-            redirect-uri: https://yeogaeng.shop/auth/kakao
+            redirect-uri: https://yeogaeng.shop/login/oauth2/code/kakao
             client-name: Kakao
         provider:
           kakao: # 카카오 OAuth2 제공자 설정

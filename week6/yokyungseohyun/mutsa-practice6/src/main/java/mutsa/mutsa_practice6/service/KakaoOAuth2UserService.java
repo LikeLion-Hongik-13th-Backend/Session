@@ -1,4 +1,4 @@
-package mutsa.mutsa_practice6.repository;
+package mutsa.mutsa_practice6.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -7,6 +7,7 @@ import mutsa.mutsa_practice6.entity.CustomOAuth2User;
 import mutsa.mutsa_practice6.entity.Role;
 import mutsa.mutsa_practice6.entity.SocialType;
 import mutsa.mutsa_practice6.entity.User;
+import mutsa.mutsa_practice6.repository.UserRepository;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
