@@ -14,9 +14,7 @@ public class UserService {
 
     public Long createUser(UserRequestDto userRequestDto) {
         User user = User.builder()
-                .userName(userRequestDto.getUserName())
-                .email(userRequestDto.getEmail())
-                .password(userRequestDto.getPassword())
+                .nickname(userRequestDto.getNickname())
                 .build();
 
         return userRepository.save(user).getUserId();
