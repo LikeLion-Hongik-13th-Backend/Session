@@ -77,7 +77,8 @@ public class SecurityConfig {
                                 "/oauth2/**",          // OAuth2 관련
                                 "/h2-console/**",      // H2 데이터베이스 콘솔
                                 "/api/auth/**",   // 인증 관련 API
-                                "/static/**"
+                                "/static/**",
+                                "/login/oauth2/**" //추가함
                         ).permitAll()
 
                         // 나머지 모든 요청은 인증 필요
@@ -87,7 +88,7 @@ public class SecurityConfig {
                 // === OAuth2 로그인 설정 ===
                 .oauth2Login(oauth2 -> oauth2
                         // 로그인 페이지 URL
-                        .loginPage("/login")
+                        //.loginPage("/login")
 
                         // 카카오 사용자 정보 처리 서비스
                         .userInfoEndpoint(userInfo ->

@@ -110,7 +110,7 @@ public class OAuth2AuthenticationSuccessHandler implements AuthenticationSuccess
         response.setStatus(HttpServletResponse.SC_OK);
 
         // CORS 헤더 설정 (프론트엔드 연동을 위해)
-        response.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+        response.setHeader("Access-Control-Allow-Origin", "https://youngjunn2.shop"); //http://localhost:3000
         response.setHeader("Access-Control-Allow-Credentials", "true");
 
         // JSON 응답 작성
