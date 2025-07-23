@@ -118,7 +118,9 @@ public class SecurityConfig {
         // 허용할 도메인 설정 (개발환경)
         configuration.setAllowedOrigins(Arrays.asList(
                 "http://localhost:3000",    // React 개발 서버
-                "http://localhost:8080"     // 같은 서버
+                "http://localhost:8080",     // 같은 서버
+                "https://yeogaeng.shop",
+                "https://youngjunn2.shop"
         ));
 
         // 허용할 HTTP 메서드

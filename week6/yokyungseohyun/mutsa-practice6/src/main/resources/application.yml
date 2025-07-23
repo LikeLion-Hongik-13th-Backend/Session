@@ -42,3 +42,7 @@ spring:
     access-token-expiration: 3600000    # 1시간 (1 * 60 * 60 * 1000)
     # Refresh Token: 긴 만료시간 (사용자 편의성)
     refresh-token-expiration: 1209600000 # 14일 (14 * 24 * 60 * 60 * 1000)
+
+  logging:
+    level:
+      org.springframework.security: TRACE

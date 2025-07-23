@@ -25,6 +25,17 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+        //에러 때문에 추가한 코드
+        String requestURI = request.getRequestURI();
+
+        // OAuth2 콜백 경로는 JWT 인증 필터에서 예외 처리
+        if (requestURI.startsWith("/login/oauth2/code/")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
+        //여기까지
+
         String token = getTokenFromRequest(request);
 
         if(token != null && jwtUtil.validateToken(token)) {
