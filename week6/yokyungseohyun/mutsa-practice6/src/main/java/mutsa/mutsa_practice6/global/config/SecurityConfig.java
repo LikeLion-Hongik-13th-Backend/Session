@@ -2,8 +2,6 @@ package mutsa.mutsa_practice6.global.config;
 
 import lombok.RequiredArgsConstructor;
 import mutsa.mutsa_practice6.global.JwtTokenFilter;
-import mutsa.mutsa_practice6.service.KakaoOAuth2UserService;
-import mutsa.mutsa_practice6.service.OAuth2AuthenticationSuccessHandler;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
@@ -36,9 +34,7 @@ import java.util.Arrays;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final KakaoOAuth2UserService kakaoOAuth2UserService;
     private final JwtTokenFilter jwtTokenFilter;
-    private final OAuth2AuthenticationSuccessHandler oAuth2AuthenticationSuccessHandler;
 
     /**
      * Spring Security 필터 체인 설정
@@ -58,9 +54,9 @@ public class SecurityConfig {
                         .frameOptions(frameOptionsConfig -> frameOptionsConfig.disable()) // H2 콘솔 iframe 허용
                 )
 
-                // === CORS 설정 ===
+                // === CORS 설정 === -> nginx에서 설정
                 // 프론트엔드에서 API 호출 시 필요
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                //.cors(cors -> cors.configurationSource(corsConfigurationSource()))
 
                 // === 세션 관리 설정 ===
                 // JWT 토큰을 사용하므로 세션을 생성하지 않음
@@ -73,30 +69,14 @@ public class SecurityConfig {
                         // 인증 없이 접근 가능한 경로들
                         .requestMatchers(
                                 "/",                    // 메인 페이지
-                                "/login/**",            // 로그인 관련
-                                "/oauth2/**",          // OAuth2 관련
+                                "/auth/**",            // 인증 API (프론트 주도 OAuth)
                                 "/h2-console/**",      // H2 데이터베이스 콘솔
                                 "/api/auth/**",   // 인증 관련 API
-                                "/static/**",
-                                "/login/oauth2/**" //추가함
+                                "/api/oauth/**"  // OAuth API (프론트 주도 방식)
                         ).permitAll()
 
                         // 나머지 모든 요청은 인증 필요
                         .anyRequest().authenticated()
-                )
-
-                // === OAuth2 로그인 설정 ===
-                .oauth2Login(oauth2 -> oauth2
-                        // 로그인 페이지 URL
-                        //.loginPage("/login")
-
-                        // 카카오 사용자 정보 처리 서비스
-                        .userInfoEndpoint(userInfo ->
-                                userInfo.userService(kakaoOAuth2UserService)
-                        )
-
-                        // OAuth2 로그인 성공 시 처리 핸들러
-                        .successHandler(oAuth2AuthenticationSuccessHandler)
                 )
 
                 // === 커스텀 필터 추가 ===
@@ -112,6 +92,7 @@ public class SecurityConfig {
      *
      * @return CorsConfigurationSource CORS 설정 소스
      */
+    /* nginx에서 처리.
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
@@ -119,6 +100,7 @@ public class SecurityConfig {
         // 허용할 도메인 설정 (개발환경)
         configuration.setAllowedOrigins(Arrays.asList(
                 "http://localhost:3000",    // React 개발 서버
+                "http://localhost:5173",
                 "http://localhost:8080",     // 같은 서버
                 "https://yeogaeng.shop",
                 "https://youngjunn2.shop"
@@ -140,4 +122,5 @@ public class SecurityConfig {
 
         return source;
     }
+    */
 }

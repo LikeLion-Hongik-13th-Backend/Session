@@ -24,8 +24,7 @@ public class ProductService {
                         product.getProductId(),
                         product.getProductName(),
                         product.getCategory(),
-                        product.getPrice(),
-                        product.getDescription()
+                        product.getPrice()
                 )).collect(Collectors.toList());
         return productResponseDtos;
     }
@@ -40,7 +39,6 @@ public class ProductService {
                 .name(product.getProductName())
                 .category(product.getCategory())
                 .price(product.getPrice())
-                .description(product.getDescription())
                 .build();
     }
 
@@ -53,7 +51,6 @@ public class ProductService {
                         .name(product.getProductName())
                         .category(product.getCategory())
                         .price(product.getPrice())
-                        .description(product.getDescription())
                         .build()
                 ).collect(Collectors.toList());
     }
@@ -67,7 +64,6 @@ public class ProductService {
                 .productName(productRequestDto.getProductName())
                 .price(productRequestDto.getPrice())
                 .category(productRequestDto.getCategory())
-                .description(productRequestDto.getDescription())
                 .build();
         return productRepository.save(product).getProductId();
     }

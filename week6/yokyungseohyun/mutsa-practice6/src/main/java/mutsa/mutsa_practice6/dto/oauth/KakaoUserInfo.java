@@ -1,4 +1,4 @@
-package mutsa.mutsa_practice6.dto;
+package mutsa.mutsa_practice6.dto.oauth;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

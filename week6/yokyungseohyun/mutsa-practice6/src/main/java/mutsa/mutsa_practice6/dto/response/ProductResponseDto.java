@@ -14,5 +14,4 @@ public class ProductResponseDto {
     private String name;
     private String category;
     private int price;
-    private String description;
 }

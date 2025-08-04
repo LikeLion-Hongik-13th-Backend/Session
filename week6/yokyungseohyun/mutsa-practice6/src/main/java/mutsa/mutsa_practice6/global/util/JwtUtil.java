@@ -19,16 +19,17 @@ import java.util.Date;
  */
 @Component
 @Slf4j  // 로그 출력을 위한 어노테이션
+
 public class JwtUtil {
 
     // application.yml에서 설정한 JWT 비밀키와 만료시간
-    @Value("${spring.jwt.secret}")
+    @Value("${jwt.secret}")
     private String secretKey;
 
-    @Value("${spring.jwt.access-token-expiration}")
+    @Value("${jwt.access-token-expiration}")
     private long accessTokenExpiration;
 
-    @Value("${spring.jwt.refresh-token-expiration}")
+    @Value("${jwt.refresh-token-expiration}")
     private long refreshTokenExpiration;
 
     public String generateToken(String socialId, long expiration, TokenType tokenType) {

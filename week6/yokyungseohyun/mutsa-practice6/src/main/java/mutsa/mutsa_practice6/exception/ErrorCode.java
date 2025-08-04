@@ -16,7 +16,8 @@ public enum ErrorCode {
     PRODUCT_NOT_FOUND("PRODUCT_NOT_FOUND", HttpStatus.NOT_FOUND, "해당 상품은 존재하지 않습니다"),
     CART_NOT_FOUND("CART_NOT_FOUND", HttpStatus.NOT_FOUND, "장바구니가 존재하지 않습니다"),
     USER_NOT_FOUND("USER_NOT_FOUND", HttpStatus.NOT_FOUND, "해당 유저는 존재하지 않습니다"),
-    INTERNAL_SERVER_ERROR("INTERNAL_SERVER_ERROR", HttpStatus.INTERNAL_SERVER_ERROR, "서버 오류가 발생했습니다");
+    INTERNAL_SERVER_ERROR("INTERNAL_SERVER_ERROR", HttpStatus.INTERNAL_SERVER_ERROR, "서버 오류가 발생했습니다"),
+    SOCIALID_NOT_FOUND("SOCIALID_NOT_FOUND", HttpStatus.NOT_FOUND, "해당 socialId로 회원을 찾을 수 없습니다");
 
     private final String code;
     private final HttpStatus status;

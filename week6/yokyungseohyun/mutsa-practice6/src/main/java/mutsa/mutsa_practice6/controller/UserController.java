@@ -2,6 +2,7 @@ package mutsa.mutsa_practice6.controller;
 
 import lombok.RequiredArgsConstructor;
 import mutsa.mutsa_practice6.dto.request.UserRequestDto;
+import mutsa.mutsa_practice6.dto.response.ApiResponse;
 import mutsa.mutsa_practice6.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +17,7 @@ public class UserController {
 
     //상품 생성
     @PostMapping("/user")
-    public ResponseEntity<Long> createUser(@RequestBody UserRequestDto userRequestDto) {
-        return ResponseEntity.ok(userService.createUser(userRequestDto));
+    public ResponseEntity<ApiResponse<Long>> createUser(@RequestBody UserRequestDto userRequestDto) {
+        return ResponseEntity.ok(ApiResponse.success(userService.createUser(userRequestDto)));
     }
 }

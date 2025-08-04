@@ -3,6 +3,8 @@ package mutsa.mutsa_practice6.service;
 import lombok.RequiredArgsConstructor;
 import mutsa.mutsa_practice6.dto.request.UserRequestDto;
 import mutsa.mutsa_practice6.entity.User;
+import mutsa.mutsa_practice6.exception.CustomException;
+import mutsa.mutsa_practice6.exception.ErrorCode;
 import mutsa.mutsa_practice6.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +20,10 @@ public class UserService {
                 .build();
 
         return userRepository.save(user).getUserId();
+    }
+
+    public User findBySocialId(String socialId) {
+        return userRepository.findBySocialId(socialId)
+                .orElseThrow(() -> new CustomException(ErrorCode.SOCIALID_NOT_FOUND));
     }
 }
