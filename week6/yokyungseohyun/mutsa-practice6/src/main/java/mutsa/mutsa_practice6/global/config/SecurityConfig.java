@@ -54,9 +54,9 @@ public class SecurityConfig {
                         .frameOptions(frameOptionsConfig -> frameOptionsConfig.disable()) // H2 콘솔 iframe 허용
                 )
 
-                // === CORS 설정 === -> nginx에서 설정
+                // === CORS 설정 ===
                 // 프론트엔드에서 API 호출 시 필요
-                //.cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
 
                 // === 세션 관리 설정 ===
                 // JWT 토큰을 사용하므로 세션을 생성하지 않음
@@ -92,7 +92,6 @@ public class SecurityConfig {
      *
      * @return CorsConfigurationSource CORS 설정 소스
      */
-    /* nginx에서 처리.
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
@@ -122,5 +121,4 @@ public class SecurityConfig {
 
         return source;
     }
-    */
 }
