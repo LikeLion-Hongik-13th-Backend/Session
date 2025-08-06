@@ -14,6 +14,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import jakarta.annotation.PostConstruct;
 import java.util.Arrays;
 
 /**
@@ -35,6 +36,14 @@ import java.util.Arrays;
 public class SecurityConfig {
 
     private final JwtTokenFilter jwtTokenFilter;
+    
+    @PostConstruct
+    public void init() {
+        System.out.println("========================================");
+        System.out.println("SecurityConfig Bean이 생성되었습니다!");
+        System.out.println("JwtTokenFilter 주입 확인: " + (jwtTokenFilter != null ? "성공" : "실패"));
+        System.out.println("========================================");
+    }
 
     /**
      * Spring Security 필터 체인 설정
@@ -46,6 +55,10 @@ public class SecurityConfig {
      */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        System.out.println("========================================");
+        System.out.println("SecurityFilterChain Bean 생성 시작!");
+        System.out.println("========================================");
+        
         http
                 // === CSRF 보안 설정 ===
                 // REST API에서는 CSRF 공격 위험이 적으므로 비활성화
@@ -69,7 +82,8 @@ public class SecurityConfig {
                         // 인증 없이 접근 가능한 경로들
                         .requestMatchers(
                                 "/",                    // 메인 페이지
-                                "/auth/**",            // 인증 API (프론트 주도 OAuth)
+                                "/auth/kakao",            // 인증 API (프론트 주도 OAuth)
+                                "/auth/**",
                                 "/h2-console/**",      // H2 데이터베이스 콘솔
                                 "/api/auth/**",   // 인증 관련 API
                                 "/api/oauth/**"  // OAuth API (프론트 주도 방식)

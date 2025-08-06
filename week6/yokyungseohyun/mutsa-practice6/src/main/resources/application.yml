@@ -20,10 +20,6 @@ spring:
           auto: update  # 배포 시에는 validate 또는 none 권장
         default_batch_fetch_size: 1000
 
-  logging:
-    level:
-      org.springframework.security: TRACE  # 디버깅 중이면 유지, 이후 INFO로
-
 jwt:
   secret: ${JWT_SECRET}
   access-token-expiration: 3600000       # 1시간 (1 * 60 * 60 * 1000)
@@ -36,3 +32,11 @@ kakao:
   auth-uri: https://kauth.kakao.com/oauth/authorize
   token-uri: https://kauth.kakao.com/oauth/token
   user-info-uri: https://kapi.kakao.com/v2/user/me
+
+logging:
+  level:
+    root: INFO
+    mutsa.mutsa_practice6: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.web.filter: DEBUG
